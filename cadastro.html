@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+        <form id="productForm">
+            <label for="product-image">URL da Imagem:</label>
+            <input type="text" id="product-image" name="product-image" placeholder="https://example.com/imagem.jpg"
+                required>
+
+            <label for="product-name">Nome do Produto:</label>
+            <input type="text" id="product-name" name="product-name" placeholder="Nome do produto" required>
+
+            <label for="product-price">Preço:</label>
+            <input type="number" id="product-price" name="product-price" placeholder="Preço do produto" step="0.01"
+                required>
+
+            <label for="product-description">Descrição:</label>
+            <textarea id="product-description" name="product-description" rows="4" placeholder="Descrição do produto"
+                required></textarea>
+
+            <label for="product-type">Tipo de Produto:</label>
+            <select id="product-type" name="product-type" required>
+                <option value="">Selecione um tipo</option>
+                <option value="solvente">Solvente</option>
+                <option value="reagente">Reagente</option>
+                <option value="vidraria">Vidraria</option>
+                <option value="indicador">Indicador</option>
+            </select>
+
+            <button type="submit">Adicionar Produto</button>
+        </form>
+
+    </div>
+
+    <script type="module" src="src/pages/cadastro.ts"></script>
+</body>
+
+</html>
