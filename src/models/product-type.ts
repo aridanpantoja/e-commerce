@@ -1,1 +1,5 @@
-export type ProductTypeProps = "solvente" | "reagente" | "vidraria" | "indicador" 
+export type ProductTypeProps =
+    | 'solvente'
+    | 'reagente'
+    | 'vidraria'
+    | 'indicador'
