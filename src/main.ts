@@ -1,21 +1,21 @@
-import { ProductProps } from "./models/product";
-import { getStoredProducts } from "./utils";
+import { Footer } from './components/Footer/'
+import { Header } from './components/Header/'
 
-const wrapper = document.querySelector("#app")
-const storedProducts = getStoredProducts()
+const path = window.location.pathname
 
-storedProducts.forEach((product: ProductProps) => {
-    const card = `
-        <div>
-            <img src="${product.image}" alt="${product.name}" />
-            <p>${product.name}</p>
-            <p>${product.description}</p>
-            <p>${product.price}</p>
-            <p>${product.type}</p>
-        </div>
-    `
-    
-    if (wrapper) {
-        wrapper.innerHTML += card
-    }
-})
+const header = new Header()
+const footer = new Footer()
+
+if (path === '/') {
+    import('./pages/home.ts')
+        .then((module) => new module.default())
+        .catch((err) => console.error('Erro ao carregar página: ', err))
+} else if (path === '/admin') {
+    import('./pages/admin.ts')
+        .then((module) => new module.default())
+        .catch((err) => console.error('Erro ao carregar página: ', err))
+} else {
+    import('./pages/not-found.ts')
+        .then((module) => new module.default())
+        .catch((err) => console.error('Erro ao carregar página: ', err))
+}
