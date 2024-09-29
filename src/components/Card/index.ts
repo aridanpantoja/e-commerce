@@ -7,12 +7,13 @@ export class Card {
     name: string
     price: number
     image: string
+    description: string
     type: ProductTypeProps
     id: string
     options: boolean
 
     constructor(
-        { name, price, image, type, id }: ProductProps,
+        { name, price, image, type, id, description }: ProductProps,
         options: boolean = false
     ) {
         this.name = name
@@ -21,6 +22,7 @@ export class Card {
         this.type = type
         this.id = id
         this.options = options
+        this.description = description
 
         loadComponent(this.render(), '#products-list')
 
@@ -36,6 +38,7 @@ export class Card {
                 <p>${this.price}</p>
                 <p>${this.image}</p>
                 <p>${this.type}</p>
+                <p>${this.description}</p>
 
                 ${
                     this.options

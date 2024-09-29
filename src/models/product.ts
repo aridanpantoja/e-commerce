@@ -6,4 +6,5 @@ export interface ProductProps {
     price: number
     type: ProductTypeProps
     id: string
+    description: string
 }
