@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const products: ProductProps[] = [
     {
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.didaticasp.com.br%2Facetona-pa-1l-pfssp&psig=AOvVaw3EkVcz-SG9gZrcb8ykEbGZ&ust=1727736344118000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPi1ic-d6YgDFQAAAAAdAAAAABAE',
+        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.didaticasp.com.br%2Fproduto%2Facetona-pa-1l-cas-67-64-1-pfssp-concentracao-995-densidade-079.html&psig=AOvVaw2HHOqrq6avkT9nhROlchBu&ust=1727796504713000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKiO49j96ogDFQAAAAAdAAAAABAI',
         name: 'Acetona',
         price: 38.46,
         description:
@@ -12,7 +12,7 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://http2.mlstatic.com/D_NQ_NP_785747-MLB76861023187_062024-O.webp',
+        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.phlab.com.br%2Fproduto%2Fhidroxido-de-sodio-pa-acs-frasco-1-kg%2F&psig=AOvVaw2qptiNCprEiMl414BSOZfS&ust=1727796556166000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCb2vH96ogDFQAAAAAdAAAAABAE',
         name: 'Hidróxido de Sódio (NaOH)',
         price: 49.9,
         description:
@@ -21,7 +21,7 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://www.google.com/imgres?q=balao%20volumetrico%20240%20ml&imgurl=https%3A%2F%2Fimages.tcdn.com.br%2Fimg%2Fimg_prod%2F243435%2Fbalao_volumetrico_com_rolha_de_vidro_3311_1_20190103180117.jpg&imgrefurl=https%3A%2F%2Fwww.lojasynth.com%2Fvidrarias%2Fbaloes-volumetricos%2Fbalao-volumetrico-com-rolha-em-polipropileno&docid=U1kojy617267DM&tbnid=nLDbpm9pjr6nwM&vet=12ahUKEwi03vSUnumIAxVKpZUCHZcHFx0QM3oECGQQAA..i&w=700&h=700&hcb=2&ved=2ahUKEwi03vSUnumIAxVKpZUCHZcHFx0QM3oECGQQAA',
+        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pro-analise.com.br%2Fbalao-volumetrico-250ml_36951-Brand%3Fuser%3Dfox_proanalise&psig=AOvVaw3qPwvunWp9qOvD-ZSAfybg&ust=1727796582185000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOipzf_96ogDFQAAAAAdAAAAABAE',
         name: 'Balão Volumétrico 250 mL',
         price: 54.6,
         description:
@@ -30,7 +30,7 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://http2.mlstatic.com/D_NQ_NP_2X_707220-MLB54380724043_032023-F.webp',
+        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.laderquimica.com.br%2Ffenolftaleina-solucao-alcoolica-a-1-1lt-neon&psig=AOvVaw2w-tLiS2NJO8mzmqmuObgf&ust=1727796605719000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIDu7Ij-6ogDFQAAAAAdAAAAABAE',
         name: 'Fenolftaleína, solução 1% alcoolica',
         price: 40,
         description:
