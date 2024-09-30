@@ -54,6 +54,7 @@ export class Form {
                     <option value="reagente">Reagente</option>
                     <option value="vidraria">Vidraria</option>
                     <option value="indicador">Indicador</option>
+                    <option value="equipamento">Equipamento</option>
                 </select>
 
                 <button type="submit">Adicionar Produto</button>
