@@ -17,19 +17,13 @@ Este projeto faz parte da conclusão do Módulo 3 do curso de Frontend da Ada Te
 
 ## Execução do Projeto
 
-1. **Instale as dependências**
-
-Navegue até o diretório raiz do projeto e execute o comando abaixo para instalar todas as dependências necessárias:
+1. **Instale as dependências**: navegue até o diretório raiz do projeto e execute o comando abaixo para instalar todas as dependências necessárias:
 
 `npm install`
 
-
-2. **Execute o projeto**
-
-Após a instalação das dependências, inicie o servidor de desenvolvimento com o comando:
+2. **Execute o projeto**: após a instalação das dependências, inicie o servidor de desenvolvimento com o comando:
 
 `npm run dev`
-
 
 ## Enunciado do Projeto
 
@@ -40,6 +34,6 @@ Após a instalação das dependências, inicie o servidor de desenvolvimento com
 -   Typescript é obrigatório
 -   Deve ser criado pelo menos um "model" para representar a entidade do CRUD
 
-### EXTRA (200XP)
+**EXTRA (200XP)**
 
 -   Os dados do CRUD devem ser persistidos (leal storage ou outras firmas de persistencia, como API do CRUDCRUD)
