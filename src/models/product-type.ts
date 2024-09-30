@@ -3,3 +3,4 @@ export type ProductTypeProps =
     | 'reagente'
     | 'vidraria'
     | 'indicador'
+    | 'equipamento'

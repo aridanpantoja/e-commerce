@@ -7,6 +7,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+   gap: 20px;;
+}
+
 .card {
     background-color: #d2d4d7;
     color: #fff;
@@ -16,6 +23,7 @@
     margin: 20px;
     text-align: center;
     transition: transform 0.3s ease;
+    width: 300px;
 }
 
 .card:hover {
@@ -48,9 +56,10 @@
     margin-bottom: 20px;
 }
 
-.card igm { 
-    width: 100px;
-    height: 100px;
+.card img { 
+    width: 100%;
+    max-width: 150px;
+    height: auto;
     object-fit: contain;
     margin-bottom: 15px;
     border-radius: 8px;

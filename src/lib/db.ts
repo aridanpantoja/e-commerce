@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const products: ProductProps[] = [
     {
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.didaticasp.com.br%2Fproduto%2Facetona-pa-1l-cas-67-64-1-pfssp-concentracao-995-densidade-079.html&psig=AOvVaw2HHOqrq6avkT9nhROlchBu&ust=1727796504713000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCKiO49j96ogDFQAAAAAdAAAAABAI',
+        image: 'https://acdn.mitiendanube.com/stores/001/542/710/products/acetona1-d26e0b7da4c3ba7c6416329634967274-1024-1024.webp',
         name: 'Acetona',
         price: 38.46,
         description:
@@ -12,8 +12,8 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.phlab.com.br%2Fproduto%2Fhidroxido-de-sodio-pa-acs-frasco-1-kg%2F&psig=AOvVaw2qptiNCprEiMl414BSOZfS&ust=1727796556166000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCb2vH96ogDFQAAAAAdAAAAABAE',
-        name: 'Hidróxido de Sódio (NaOH)',
+        image: 'https://www.phlab.com.br/wp-content/uploads/2017/11/soda-perolas.jpg',
+        name: 'Hidróxido de Sódio, pérolas',
         price: 49.9,
         description:
             'Reagente básico amplamente utilizado em titulações e síntese química.',
@@ -21,7 +21,7 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pro-analise.com.br%2Fbalao-volumetrico-250ml_36951-Brand%3Fuser%3Dfox_proanalise&psig=AOvVaw3qPwvunWp9qOvD-ZSAfybg&ust=1727796582185000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOipzf_96ogDFQAAAAAdAAAAABAE',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqVyJwo2SDGmGflC1USKKeAtebfyFOrtvxw&s',
         name: 'Balão Volumétrico 250 mL',
         price: 54.6,
         description:
@@ -30,7 +30,7 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.laderquimica.com.br%2Ffenolftaleina-solucao-alcoolica-a-1-1lt-neon&psig=AOvVaw2w-tLiS2NJO8mzmqmuObgf&ust=1727796605719000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIDu7Ij-6ogDFQAAAAAdAAAAABAE',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJRy4T7_587erMhvFVJlWKJymgoaO0Q05bg&s',
         name: 'Fenolftaleína, solução 1% alcoolica',
         price: 40,
         description:
@@ -39,12 +39,32 @@ export const products: ProductProps[] = [
         id: uuidv4(),
     },
     {
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ubuy.com.br%2Fpt%2Fproduct%2F1BIKN0RJ0-luminol-5g-blood-trace-detection-forensics-chemiluminescence&psig=AOvVaw18Y59r6_A7aykPD85IWK3L&ust=1727736686987000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLDg2PWe6YgDFQAAAAAdAAAAABAE',
-        name: 'Luminol',
+        image: 'https://i.ebayimg.com/images/g/yPYAAOSwy5VbcdUq/s-l1600.jpg',
+        name: 'Luminol 5g',
         price: 464,
         description:
             'Indicador quimioluminescente usado na detecção de sangue em locais de crime.',
         type: 'indicador',
         id: uuidv4(),
     },
+    {
+        image: 'https://images.tcdn.com.br/img/img_prod/1111270/evaporador_rotativo_ika_rv_3_v_355_1_1f8c427b2af5c78018c574f886ae6b38.jpg',
+        name: 'Rotaevaporador',
+        price: 26655,
+        description:
+            'Equipamento usado para evaporar solventes de misturas complexas.',
+        type: 'equipamento',
+        id: uuidv4(),
+    }
 ]
+
+localStorage.setItem('products', JSON.stringify(products));
+
+const storedProducts: string | null = localStorage.getItem('products');
+
+if (storedProducts) {
+    const productsFromStorage: ProductProps[] = JSON.parse(storedProducts);
+    console.log(productsFromStorage); 
+} else {
+    console.log('Nenhum produto encontrado no localStorage.');
+}

@@ -36,7 +36,7 @@ export class Card {
             <div class="card">
                 <h2>${this.name}</h2>
                 <p>${this.price}</p>
-                <p>${this.image}</p>
+                <img src='${this.image}' alt=''</img>
                 <p>${this.type}</p>
                 <p>${this.description}</p>
 
