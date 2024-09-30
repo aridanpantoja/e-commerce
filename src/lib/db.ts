@@ -43,7 +43,7 @@ export const products: ProductProps[] = [
         name: 'Luminol',
         price: 464,
         description:
-            'Indicador quimio',
+            'Indicador quimioluminescente usado na detecção de sangue em locais de crime.',
         type: 'indicador',
         id: uuidv4(),
     },
