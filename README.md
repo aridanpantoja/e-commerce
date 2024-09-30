@@ -4,12 +4,13 @@ Este projeto faz parte da conclusão do Módulo 3 do curso de Frontend da Ada Te
 
 ## Funcionalidades
 
-- Cadastro de Produtos: Adição de novos produtos químicos ao catálogo.
-- Listagem de Produtos: Visualização dos produtos disponíveis na loja.
-- Atualização de Produtos: Edição das informações de um produto existente.
-- Exclusão de Produtos: Remoção de produtos do catálogo.
+-   Cadastro de Produtos: Adição de novos produtos químicos ao catálogo.
+-   Listagem de Produtos: Visualização dos produtos disponíveis na loja.
+-   Atualização de Produtos: Edição das informações de um produto existente.
+-   Exclusão de Produtos: Remoção de produtos do catálogo.
 
 ## Tecnologias Utilizadas
+
 <!--- # "Verify icons availability here https://github.com/tandpfun/skill-icons" -->
 
 [![My Skills](https://skillicons.dev/icons?i=ts,html,css,vite)](https://skillicons.dev)
@@ -17,12 +18,18 @@ Este projeto faz parte da conclusão do Módulo 3 do curso de Frontend da Ada Te
 ## Execução do Projeto
 
 1. **Instale as dependências**
-   Navegue até o diretório raiz do projeto e execute o comando abaixo para instalar todas as dependências necessárias:
-   `npm install`
+
+Navegue até o diretório raiz do projeto e execute o comando abaixo para instalar todas as dependências necessárias:
+
+`npm install`
+
 
 2. **Execute o projeto**
-    Após a instalação das dependências, inicie o servidor de desenvolvimento com o comando:
-   `docker-compose up -d`
+
+Após a instalação das dependências, inicie o servidor de desenvolvimento com o comando:
+
+`npm run dev`
+
 
 ## Enunciado do Projeto
 
