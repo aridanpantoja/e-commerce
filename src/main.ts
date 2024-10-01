@@ -1,6 +1,6 @@
 import { Footer } from './components/footer/'
 import { Header } from './components/header/'
-import { getStoredProducts } from './lib/utils.ts'
+import { getProductBySearchParam, getStoredProducts } from './lib/utils.ts'
 import { ProductProps } from './types/'
 
 class App {
@@ -40,10 +40,7 @@ class App {
     }
 
     private loadProductPage() {
-        const productId = new URLSearchParams(window.location.search).get('id')
-        const product = getStoredProducts().find(
-            (item) => item.id === productId
-        )
+        const product = getProductBySearchParam()
 
         if (!product) {
             this.notFound()
