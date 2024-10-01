@@ -58,3 +58,14 @@ a {
     font-size: 32px;
     font-weight: bold;
 }
+
+body { 
+    background-color: #f4f6f9;
+    color: #333
+}
+
+p, span { 
+    font-family: 'Roboto', sans-serif;
+    color: #4b5563;
+}
+

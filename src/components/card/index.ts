@@ -1,3 +1,4 @@
+import { Card as ImportedCard } from './index';
 import { getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
 import { ProductProps } from '../../types/'
 import { ProductTypeProps } from '../../types/'

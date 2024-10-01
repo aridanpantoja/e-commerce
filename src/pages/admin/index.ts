@@ -1,6 +1,7 @@
 import { getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
 import { ProductProps, ProductTypeProps } from '../../types'
 import { v4 as uuidv4 } from 'uuid'
+import './styles.css'
 
 export default class Admin {
     constructor() {
@@ -41,7 +42,7 @@ export default class Admin {
 
     render() {
         return `
-            <h1>Admin Panel</h1>
+            <h1>Admin Painel</h1>
 
             <form id="product-form">
                 <input type="text" id="product-image" name="product-image" placeholder="Imagem" required>

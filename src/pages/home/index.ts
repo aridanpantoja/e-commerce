@@ -1,5 +1,6 @@
 import { Card } from '../../components/card'
 import { getStoredProducts, loadComponent } from '../../lib/utils'
+import './styles.css'
 
 export default class Home {
     constructor() {
@@ -11,8 +12,8 @@ export default class Home {
     render(): string {
         return `
             <section class="hero-section">
-                <h1>Lojinha</h2>
-                <p>Confira as nossas novidades</p>
+                <h1>Bem-vindo a nossa Lojinha de Produtos Químicos</h2>
+                <p>Aqui você vai encontrar tudo para explodir alguma coisa e até para produzir entorpecentes, confira as novidades!!</p>
             </section>
 
             <section>
