@@ -10,20 +10,18 @@ form {
     margin: 0 auto;
 }
 
-form h1 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 16px;
-    text-align: center;
-}
-
-form input, form select, form button { 
+form input, form select, form button, form textarea { 
     padding: 12px 16px;
     border-radius: 5px;
     border: 1px solid #d1d5db;
     font-size: 16px;
     outline: none;
+    resize: none;
+}
+
+form input[type=number] { 
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 form input:focus, form select:focus {
@@ -40,52 +38,4 @@ form button {
 
 form button:hover {
     background-color: #1d4ed8;
-}
-
-#products-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 32px;
-    padding: 40px 24px;
-}
-
-.list-item {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
-}
-
-.list-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.list-item h2 {
-    font-size: 20px;
-    color: #1f2937;
-    margin-bottom: 10px;
-}
-
-.list-item p { 
-    font-size: 16px;
-    color:#4b5563;
-    margin-bottom: 10px;
-}
-
-.list-item button {
-    padding: 10px 15px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    background-color: #dc2626;
-    color: #fff;
-    transition: background-color 0.3s ease;
-}
-
-.list-item button:hover {
-    background-color: #b91c1c;
 }

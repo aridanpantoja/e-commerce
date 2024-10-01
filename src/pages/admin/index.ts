@@ -13,11 +13,11 @@ export default class Admin {
             form.addEventListener('submit', (e) => {
                 e.preventDefault()
 
-                const imageInput = document.querySelector(
-                    '#product-image'
-                ) as HTMLInputElement
                 const nameInput = document.querySelector(
                     '#product-name'
+                ) as HTMLInputElement
+                const imageInput = document.querySelector(
+                    '#product-image'
                 ) as HTMLInputElement
                 const priceInput = document.querySelector(
                     '#product-price'
@@ -25,13 +25,16 @@ export default class Admin {
                 const typeInput = document.querySelector(
                     '#product-type'
                 ) as HTMLSelectElement
+                const descriptionInput = document.querySelector(
+                    '#product-description'
+                ) as HTMLInputElement
 
                 const newProduct: ProductProps = {
                     image: imageInput.value,
                     name: nameInput.value,
                     price: parseFloat(priceInput.value),
                     type: typeInput.value as ProductTypeProps,
-                    description: 'Oi',
+                    description: descriptionInput.value,
                     id: uuidv4(),
                 }
 
@@ -41,24 +44,26 @@ export default class Admin {
     }
 
     render() {
-        return `
+        return /*HTML*/ `
             <h1>Admin Painel</h1>
 
             <form id="product-form">
-                <input type="text" id="product-image" name="product-image" placeholder="Imagem" required>
-
                 <input type="text" id="product-name" name="product-name" placeholder="Nome do produto" required>
+                
+                <input type="text" id="product-image" name="product-image" placeholder="URL da imagem" required>
 
                 <input type="number" id="product-price" name="product-price" placeholder="Preço do produto" step="0.01" required>
 
                 <select id="product-type" name="product-type" required>
-                    <option value="" disabled>Tipo do produto</option>
+                    <option value="" disabled selected>Tipo do produto</option>
                     <option value="solvente">Solvente</option>
                     <option value="reagente">Reagente</option>
                     <option value="vidraria">Vidraria</option>
                     <option value="indicador">Indicador</option>
                     <option value="equipamento">Equipamento</option>
                 </select>
+
+                <textarea type="text" id="product-description" name="product-description" placeholder="Descrição do produto"></textarea>
 
                 <button type="submit">Confirmar</button>
             </form>
@@ -84,23 +89,27 @@ export default class Admin {
         if (productIndex !== -1) {
             const product = products[productIndex]
 
-            const imageInput = document.querySelector(
-                '#product-image'
-            ) as HTMLInputElement
             const nameInput = document.querySelector(
                 '#product-name'
             ) as HTMLInputElement
+            const imageInput = document.querySelector(
+                '#product-image'
+            ) as HTMLInputElement                
             const priceInput = document.querySelector(
                 '#product-price'
             ) as HTMLInputElement
             const typeInput = document.querySelector(
                 '#product-type'
             ) as HTMLSelectElement
+            const descriptionInput = document.querySelector(
+                '#product-description'
+            ) as HTMLInputElement
 
             product.image = imageInput.value
             product.name = nameInput.value
             product.price = parseFloat(priceInput.value)
             product.type = typeInput.value as ProductTypeProps
+            product.description = descriptionInput.value
 
             setStorage(products)
         }
