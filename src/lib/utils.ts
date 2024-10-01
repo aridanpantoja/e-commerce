@@ -24,3 +24,14 @@ export function setStorage(products: ProductProps[]) {
     localStorage.setItem('products', JSON.stringify(products))
     window.dispatchEvent(new Event('changeProducts'))
 }
+
+export function getProductBySearchParam() {
+    const productId = new URLSearchParams(window.location.search).get('id')
+    const product = getStoredProducts().find((item) => item.id === productId)
+
+    if (!product) {
+        return null 
+    }
+    
+    return product
+}
