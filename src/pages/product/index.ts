@@ -1,6 +1,7 @@
 import { Card } from '../../components/card'
 import { ProductProps } from '../../types/'
-import { loadComponent } from '../../lib/utils'
+import { formatMoney, loadComponent } from '../../lib/utils'
+import './styles.css'
 
 export default class Product {
     constructor(public product: ProductProps) {
@@ -11,9 +12,23 @@ export default class Product {
 
     render(): string {
         return `
-            <div>
-                <img src=${this.product.image} />
-                <p>${this.product.name}</p>
+            <div class="product">
+                <div class="product__image">
+                    <img src=${this.product.image} alt="${this.product.name}" />
+                </div>
+
+                <div class="product__content">
+                    <span class="content__type">${this.product.type.toLocaleUpperCase()}</span>
+                    <h1>${this.product.name}</h1>
+                    <p>${this.product.description}</p>
+                    <p class="content__price">${formatMoney(this.product.price)}</p>
+
+                    <a href="/admin?id=${this.product.id}" class="edit-button">
+                        Editar produto &rarr;
+                    </a>
+                </div>
+                
+                
             </div>
         `
     }
