@@ -1,4 +1,4 @@
-import { getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
+import { formatMoney, getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
 import { ProductProps } from '../../types/'
 import { ProductTypeProps } from '../../types/'
 import './styles.css'
@@ -25,23 +25,29 @@ export class Card {
 
     render() {
         return `
-            
                 <div class="card">
-                    <a href="/product?id=${this.id}">
-                        <img src='${this.image}' alt=''/>
-                        <h2>${this.name}</h2>
-                        <p>${this.price}</p>
-                        <p>${this.type}</p>
-                        <p>${this.description}</p>
+                    <a href="/product?id=${this.id}" class="card__image">
+                        <img src='${this.image}' alt="${this.name}" class="" />
                     </a>
-
-                    <div>
-                        <a href="/admin?id=${this.id}">
-                            <button>Editar</button>
+                    <div class="card__content">
+                        <a href="/product?id=${this.id}" class="">
+                            <h2 class="card__title">${this.name}</h2>
                         </a>
-                        
-                        <button id="remove-${this.id}">Remover</button>
+
+                        <p class="card__price">${formatMoney(this.price)}</p>
+
+                        <div>
+                            <a href="/admin?id=${this.id}" class="card-button" >
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            
+                            <div id="remove-${this.id}" class="card-button trash-button" >
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
                     </div>
+
+
                 </div>
         `
     }
