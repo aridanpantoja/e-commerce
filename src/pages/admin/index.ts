@@ -1,4 +1,4 @@
-import { getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
+import { getProductBySearchParam, getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
 import { ProductProps, ProductTypeProps } from '../../types'
 import { v4 as uuidv4 } from 'uuid'
 import './styles.css'
@@ -7,27 +7,28 @@ export default class Admin {
     constructor() {
         loadComponent(this.render())
 
+        const product = getProductBySearchParam()
+        
+        if (product) {
+            const { nameInput, imageInput, descriptionInput, priceInput, typeInput } = this.getInputFields()
+
+            nameInput.value = product.name
+            imageInput.value = product.image
+            descriptionInput.value = product.description
+            priceInput.value = product.price.toString()
+            typeInput.value = product.type
+        }
+        
+        this.addEventListener()
+    }
+
+    private addEventListener() {
         const form = document.querySelector<HTMLFormElement>('#product-form')
 
-        if (form)
+        if (form) {
             form.addEventListener('submit', (e) => {
                 e.preventDefault()
-
-                const nameInput = document.querySelector(
-                    '#product-name'
-                ) as HTMLInputElement
-                const imageInput = document.querySelector(
-                    '#product-image'
-                ) as HTMLInputElement
-                const priceInput = document.querySelector(
-                    '#product-price'
-                ) as HTMLInputElement
-                const typeInput = document.querySelector(
-                    '#product-type'
-                ) as HTMLSelectElement
-                const descriptionInput = document.querySelector(
-                    '#product-description'
-                ) as HTMLInputElement
+                const { nameInput, imageInput, descriptionInput, priceInput, typeInput } = this.getInputFields()
 
                 const newProduct: ProductProps = {
                     image: imageInput.value,
@@ -38,12 +39,44 @@ export default class Admin {
                     id: uuidv4(),
                 }
 
-                this.addProduct(newProduct)
-                this.updateProduct()
+                const product = getProductBySearchParam()
+
+                if (product) {
+                    this.updateProduct(newProduct)
+                } else {
+                    this.addProduct(newProduct)
+                }
+
+                nameInput.value = ""
+                imageInput.value = ""
+                descriptionInput.value = ""
+                priceInput.value = ""
+                typeInput.value = ""
             })
+        }
+    } 
+
+    private getInputFields() {
+        const nameInput = document.querySelector(
+            '#product-name'
+        ) as HTMLInputElement
+        const imageInput = document.querySelector(
+            '#product-image'
+        ) as HTMLInputElement
+        const priceInput = document.querySelector(
+            '#product-price'
+        ) as HTMLInputElement
+        const typeInput = document.querySelector(
+            '#product-type'
+        ) as HTMLSelectElement
+        const descriptionInput = document.querySelector(
+            '#product-description'
+        ) as HTMLInputElement
+
+        return { nameInput, imageInput, priceInput, typeInput, descriptionInput }
     }
 
-    render() {
+    private render() {
         return /*HTML*/ `
             <h1>Admin Painel</h1>
 
@@ -70,48 +103,31 @@ export default class Admin {
         `
     }
 
-    addProduct(newProduct: ProductProps) {
-        const productId = new URLSearchParams(window.location.search).get('id')
+    private addProduct(newProduct: ProductProps) {
         const products = getStoredProducts()
-        const productIndex = products.findIndex((item) => item.id === productId)
 
-        if (products && productIndex === -1) {
+        if (products) {
             products.push(newProduct)
             setStorage(products)
         }
+
+        window.alert("O produto foi cadastrado com sucesso!")
     }
 
-    updateProduct() {
-        const productId = new URLSearchParams(window.location.search).get('id')
+    private updateProduct(newProduct: ProductProps) {
         const products = getStoredProducts()
+        const productId = new URLSearchParams(window.location.search).get('id')
         const productIndex = products.findIndex((item) => item.id === productId)
 
         if (productIndex !== -1) {
-            const product = products[productIndex]
-
-            const nameInput = document.querySelector(
-                '#product-name'
-            ) as HTMLInputElement
-            const imageInput = document.querySelector(
-                '#product-image'
-            ) as HTMLInputElement                
-            const priceInput = document.querySelector(
-                '#product-price'
-            ) as HTMLInputElement
-            const typeInput = document.querySelector(
-                '#product-type'
-            ) as HTMLSelectElement
-            const descriptionInput = document.querySelector(
-                '#product-description'
-            ) as HTMLInputElement
-
-            product.image = imageInput.value
-            product.name = nameInput.value
-            product.price = parseFloat(priceInput.value)
-            product.type = typeInput.value as ProductTypeProps
-            product.description = descriptionInput.value
+            products[productIndex] = { 
+                ...newProduct,
+                id: products[productIndex].id
+            }
 
             setStorage(products)
         }
+
+        window.alert("O produto foi editado com sucesso!")
     }
 }
