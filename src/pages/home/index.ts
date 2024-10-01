@@ -7,6 +7,10 @@ export default class Home {
         loadComponent(this.render())
 
         this.renderProducts()
+
+        window.addEventListener('changeProducts', () => {
+            this.renderProducts()
+        })
     }
 
     render(): string {
