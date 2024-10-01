@@ -9,7 +9,7 @@ export class Footer {
     private render() {
         return `
             <div class="footer">
-                <p>Feito por Aridan, Debora e Eric</p> 
+                <p class="footer__content">© 2024 | All rights reserved</p> 
             </div>
         `
     }
