@@ -1,4 +1,4 @@
-import { ProductProps } from '../models/product'
+import { ProductProps } from '../types/'
 import { v4 as uuidv4 } from 'uuid'
 
 export const products: ProductProps[] = [
@@ -55,16 +55,5 @@ export const products: ProductProps[] = [
             'Equipamento usado para evaporar solventes de misturas complexas.',
         type: 'equipamento',
         id: uuidv4(),
-    }
+    },
 ]
-
-localStorage.setItem('products', JSON.stringify(products));
-
-const storedProducts: string | null = localStorage.getItem('products');
-
-if (storedProducts) {
-    const productsFromStorage: ProductProps[] = JSON.parse(storedProducts);
-    console.log(productsFromStorage); 
-} else {
-    console.log('Nenhum produto encontrado no localStorage.');
-}

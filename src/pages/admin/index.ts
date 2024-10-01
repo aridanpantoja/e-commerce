@@ -1,12 +1,10 @@
-import { ProductProps } from '../../models/product'
-import { ProductTypeProps } from '../../models/product-type'
 import { getStoredProducts, loadComponent, setStorage } from '../../lib/utils'
-import './Form.css'
+import { ProductProps, ProductTypeProps } from '../../types'
 import { v4 as uuidv4 } from 'uuid'
 
-export class Form {
+export default class Admin {
     constructor() {
-        loadComponent(this.render(), '#form-wrapper')
+        loadComponent(this.render())
 
         const form = document.querySelector<HTMLFormElement>('#product-form')
 
@@ -32,6 +30,7 @@ export class Form {
                     name: nameInput.value,
                     price: parseFloat(priceInput.value),
                     type: typeInput.value as ProductTypeProps,
+                    description: 'Oi',
                     id: uuidv4(),
                 }
 
@@ -41,6 +40,8 @@ export class Form {
 
     render() {
         return `
+            <h1>Admin Panel</h1>
+
             <form id="product-form">
                 <input type="text" id="product-image" name="product-image" placeholder="Imagem" required>
 

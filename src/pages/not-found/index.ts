@@ -1,5 +1,4 @@
-import { loadComponent } from '../lib/utils'
-import '../styles/not-found.css'
+import { loadComponent } from '../../lib/utils'
 
 export default class NotFound {
     constructor() {

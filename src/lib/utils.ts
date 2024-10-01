@@ -1,4 +1,4 @@
-import { ProductProps } from '../models/product'
+import { ProductProps } from '../types/'
 import { products } from './db'
 
 export function loadComponent(component: string, id?: string) {

@@ -1,21 +1,60 @@
-import { Footer } from './components/Footer/'
-import { Header } from './components/Header/'
+import { Footer } from './components/footer/'
+import { Header } from './components/header/'
+import { getStoredProducts } from './lib/utils.ts'
+import { ProductProps } from './types/'
 
-const path = window.location.pathname
+class App {
+    private path: string
 
-const header = new Header()
-const footer = new Footer()
+    constructor() {
+        new Header()
+        new Footer()
+        this.path = window.location.pathname
+        this.init()
+    }
 
-if (path === '/') {
-    import('./pages/home.ts')
-        .then((module) => new module.default())
-        .catch((err) => console.error('Erro ao carregar página: ', err))
-} else if (path === '/admin') {
-    import('./pages/admin.ts')
-        .then((module) => new module.default())
-        .catch((err) => console.error('Erro ao carregar página: ', err))
-} else {
-    import('./pages/not-found.ts')
-        .then((module) => new module.default())
-        .catch((err) => console.error('Erro ao carregar página: ', err))
+    init() {
+        switch (this.path) {
+            case '/':
+                this.loadPage('./pages/home/')
+                break
+            case '/admin':
+                this.loadPage('./pages/admin/')
+                break
+            case '/product':
+                this.loadProductPage()
+                break
+            default:
+                this.notFound()
+                break
+        }
+    }
+
+    private async loadPage(pagePath: string, product?: ProductProps) {
+        try {
+            const module = await import(/* @vite-ignore */ pagePath)
+            new module.default(product)
+        } catch (error) {
+            console.error('Erro ao carregar a página: ', error)
+        }
+    }
+
+    private loadProductPage() {
+        const productId = new URLSearchParams(window.location.search).get('id')
+        const product = getStoredProducts().find(
+            (item) => item.id === productId
+        )
+
+        if (!product) {
+            this.notFound()
+        } else {
+            this.loadPage('./pages/product/', product)
+        }
+    }
+
+    private notFound() {
+        this.loadPage('./pages/not-found/')
+    }
 }
+
+new App()
