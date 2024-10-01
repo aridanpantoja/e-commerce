@@ -13,7 +13,7 @@ export const products: ProductProps[] = [
     },
     {
         image: 'https://www.phlab.com.br/wp-content/uploads/2017/11/soda-perolas.jpg',
-        name: 'Hidróxido de Sódio, pérolas',
+        name: 'Hidróxido de Sódio',
         price: 49.9,
         description:
             'Reagente básico amplamente utilizado em titulações e síntese química.',
@@ -22,7 +22,7 @@ export const products: ProductProps[] = [
     },
     {
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnqVyJwo2SDGmGflC1USKKeAtebfyFOrtvxw&s',
-        name: 'Balão Volumétrico 250 mL',
+        name: 'Balão Volumétrico',
         price: 54.6,
         description:
             'Vidraria usada para medições precisas de volumes de líquidos.',
@@ -31,7 +31,7 @@ export const products: ProductProps[] = [
     },
     {
         image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJRy4T7_587erMhvFVJlWKJymgoaO0Q05bg&s',
-        name: 'Fenolftaleína, solução 1% alcoolica',
+        name: 'Fenolftaleína',
         price: 40,
         description:
             'Indicador ácido-base usado em titulações, mudando de cor conforme o pH.',
