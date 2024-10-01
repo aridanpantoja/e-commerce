@@ -35,6 +35,7 @@ export default class Admin {
                 }
 
                 this.addProduct(newProduct)
+                this.updateProduct()
             })
     }
 
@@ -58,16 +59,48 @@ export default class Admin {
                     <option value="equipamento">Equipamento</option>
                 </select>
 
-                <button type="submit">Adicionar Produto</button>
+                <button type="submit">Confirmar</button>
             </form>
         `
     }
 
     addProduct(newProduct: ProductProps) {
+        const productId = new URLSearchParams(window.location.search).get('id')
         const products = getStoredProducts()
+        const productIndex = products.findIndex((item) => item.id === productId)
 
-        if (products) {
+        if (products && productIndex === -1) {
             products.push(newProduct)
+            setStorage(products)
+        }
+    }
+
+    updateProduct() {
+        const productId = new URLSearchParams(window.location.search).get('id')
+        const products = getStoredProducts()
+        const productIndex = products.findIndex((item) => item.id === productId)
+
+        if (productIndex !== -1) {
+            const product = products[productIndex]
+
+            const imageInput = document.querySelector(
+                '#product-image'
+            ) as HTMLInputElement
+            const nameInput = document.querySelector(
+                '#product-name'
+            ) as HTMLInputElement
+            const priceInput = document.querySelector(
+                '#product-price'
+            ) as HTMLInputElement
+            const typeInput = document.querySelector(
+                '#product-type'
+            ) as HTMLSelectElement
+
+            product.image = imageInput.value
+            product.name = nameInput.value
+            product.price = parseFloat(priceInput.value)
+            product.type = typeInput.value as ProductTypeProps
+
             setStorage(products)
         }
     }
